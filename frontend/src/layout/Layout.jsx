@@ -1,9 +1,9 @@
 import { Button } from '@/components/ui/button';
-import MainNav from '@/comps/MainNav';
+
 import { useAuth } from '@clerk/clerk-react';
 import { useClerk } from '@clerk/clerk-react';
 import Header from '@/comps/Header';
-import { cn } from '@/lib/utils';
+
 const Layout = ({ children }) => {
   const { userId, isLoaded } = useAuth();
   const clerk = useClerk();

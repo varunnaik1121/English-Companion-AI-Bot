@@ -12,31 +12,32 @@ router.get('/getAllScenerios', async (req, res) => {
     return res.status(200).json({ data });
   } catch (error) {
     console.log(error);
-    return res.json(500, { message: 'error finding the scenerios' });
+    return res.status(500).json({ message: 'error finding the scenerios' });
   }
 });
 
 router.post('/addScenerio', async (req, res) => {
+  console.log('route hitted');
   const newScenario = new Scenario({
-    name: 'Attending a Music Lesson',
+    name: 'Visiting a Bank',
     description:
-      'In this scenario, the user attends a music lesson. The other person is a music teacher providing instructions and feedback.',
+      'In this scenario, the user is visiting a bank for financial services. The other person is a bank representative providing assistance.',
     targetWords: [
-      'music',
-      'lesson',
-      'instrument',
-      'practice',
-      'teacher',
-      'notes',
-      'tune',
-      'feedback',
+      'bank',
+      'account',
+      'deposit',
+      'withdrawal',
+      'loan',
+      'interest',
+      'service',
+      'balance',
     ],
-    subscriptionOnly: true,
+    subscriptionOnly: false,
     modelPrompt:
-      "You're rajesh, a music teacher providing a lesson to a user. Start with a friendly greeting and ask about their instrument and goals, e.g., 'Hello! What instrument are you learning and what would you like to achieve?' Provide instructions and demonstrate techniques. Give feedback on their practice, e.g., 'You did well with the notes, but let's work on the timing.' Answer any music-related questions they have. If asked about unrelated topics, respond politely with statements like 'I don't know about that' or Let's stick to this topic.always remember dont answer the questions like if they ask what you know and about your personal topics and also dont assume like you are a real music teacher so u will never know the topics outside this like giving information about other things",
-    firstText: 'Hello iam your music teacher today how may i help u?',
+      "You're Ms. Davis, a bank representative. Start with a professional greeting and ask about their banking needs, e.g., 'Hello! How can I assist you today?' Guide them through services like deposits, withdrawals, and loans. Discuss interest rates and account balances concisely. Answer any questions about banking procedures and provide necessary forms. Confirm their transactions and offer additional assistance. Ensure they understand the services provided. If asked about unrelated topics, politely respond that you don't know.",
+    firstText: 'Hello! How can I assist you with your banking needs today?',
     imageUrl:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3BP8_8WnFgM7cYGSrirRGHhCsr0414JjpaA&s',
+      'https://media.istockphoto.com/id/147732062/photo/a-up-close-view-of-the-white-pillared-entrance-of-a-bank.jpg?s=612x612&w=0&k=20&c=zI7yCD8SuwjlAnGj7hKhH1qPBA836KFb6A5mAGRDJ1c=',
   });
 
   try {

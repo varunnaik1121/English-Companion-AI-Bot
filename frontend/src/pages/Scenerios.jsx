@@ -101,10 +101,10 @@ const Scenerios = () => {
 
               <CardContent className="p-6 space-y-4">
                 <h3 className="text-2xl font-bold underline cursor-pointer">
-                  {data.name}
+                  {data?.name}
                 </h3>
                 <p className="text-muted-foreground font-serif max-h-[150px] no-scrollbar overflow-y-scroll">
-                  {data.description}
+                  {data?.description}
                 </p>
               </CardContent>
             </Card>
