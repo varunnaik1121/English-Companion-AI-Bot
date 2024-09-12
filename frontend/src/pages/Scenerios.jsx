@@ -8,6 +8,7 @@ import { Lock } from 'lucide-react';
 const Scenerios = () => {
   //TODO: make the db call to fetch the scenerios and dispaly them using cards
   const { userId } = useAuth();
+  console.log(userId);
   const [scenerioData, setScenerioData] = useState([]);
   const [userDetails, setUserDetails] = useState(null);
   const navigate = useNavigate();

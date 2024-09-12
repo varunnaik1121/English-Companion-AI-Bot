@@ -8,6 +8,7 @@ import updateProgressRoutes from './routes/updateProgressRoutes.js';
 import getScenerioRoutes from './routes/getScenerioRoutes.js';
 import getUserProgressRoutes from './routes/getUserProgressRoutes.js';
 import stripePaymentRoutes from './routes/stripePaymentRoutes.js';
+import updateConversation from './routes/updateConversation.js';
 import Stripe from 'stripe';
 
 try {
@@ -28,6 +29,7 @@ app.use('/api/getScenerio', getScenerioRoutes);
 app.use('/api/updateProgress', updateProgressRoutes);
 app.use('/api/getUserProgress', getUserProgressRoutes);
 app.use('/api/payment', stripePaymentRoutes);
+app.use('/api/updateConversation', updateConversation);
 
 app.listen(7000, () => {
   console.log('server started');
